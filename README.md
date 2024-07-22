@@ -37,7 +37,7 @@ The Game of Life is a cellular automaton.
 
 It is discussed in detail on [Wikipedia] (https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-##Rules
+## Rules
 The game of life is played on a two dimensional grid.
 
 At each turn, the state of a cell may either be "alive" or "dead"; determined by the following rules:
