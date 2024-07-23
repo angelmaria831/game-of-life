@@ -42,8 +42,8 @@ The game of life is played on a two dimensional grid.
 
 At each turn, the state of a cell may either be "alive" or "dead"; determined by the following rules:
 
-1. A cell with fewer than two live neighbours dies of under-population
-2. A cell with 2 or 3 live neighbours lives on to the next generation
-3. A cell with more than 3 live neighbours dies of overcrowding
-4. An empty cell with exactly 3 live neighbours "comes to life"
+1. A live cell with fewer than two live neighbours dies of under-population
+2. A live cell with 2 or 3 live neighbours lives on to the next generation
+3. A live cell with more than 3 live neighbours dies of overcrowding
+4. A dead cell with exactly 3 live neighbours "comes to life"
 Tasks

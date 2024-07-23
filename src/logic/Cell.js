@@ -7,6 +7,7 @@ class Cell {
         this.state = state
     }
 
+
     getNextState(neighbourCount){
 
         if(this.state === ALIVE ){
