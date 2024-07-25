@@ -33,6 +33,13 @@ class Game {
         return count
     }
 
+
+    getNextGeneration() {
+        return this.board.map((row, rowNum) => 
+            row.map((cell, colNum) => new Cell(cell.getNextState(this.getNeighbourCount(rowNum, colNum))))
+        )
+    }
+
 }
 
 export default Game

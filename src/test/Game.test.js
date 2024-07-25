@@ -166,5 +166,29 @@ describe('Game', () => {
         expect(nextStatewithFourNeighbours).toBe(DEAD)
     })
 
+    it('should generate next generation based on the current state and rules', () => {
+
+        const testBoard = [
+            [DEAD,DEAD,DEAD,DEAD,DEAD],
+            [DEAD,DEAD,DEAD,DEAD,DEAD],
+            [DEAD,ALIVE,ALIVE,ALIVE,DEAD],
+            [DEAD,DEAD,DEAD,DEAD,DEAD],
+            [DEAD,DEAD,DEAD,DEAD,DEAD],
+        ]
+
+        const expectedNextGen = [
+            [new Cell(DEAD),new Cell(DEAD),new Cell(DEAD),new Cell(DEAD),new Cell(DEAD)],
+            [new Cell(DEAD),new Cell(DEAD),new Cell(ALIVE),new Cell(DEAD),new Cell(DEAD)],
+            [new Cell(DEAD),new Cell(DEAD),new Cell(ALIVE),new Cell(DEAD),new Cell(DEAD)],
+            [new Cell(DEAD),new Cell(DEAD),new Cell(ALIVE),new Cell(DEAD),new Cell(DEAD)],
+            [new Cell(DEAD),new Cell(DEAD),new Cell(DEAD),new Cell(DEAD),new Cell(DEAD)],
+        ]
+
+        const gameBoard = new Game(testBoard)
+        const nextGen = gameBoard.getNextGeneration()
+        expect(nextGen).toEqual(expectedNextGen)
+
+    })
+
     
 })
