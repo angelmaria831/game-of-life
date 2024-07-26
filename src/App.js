@@ -1,6 +1,7 @@
 import './App.css';
 import { useState} from 'react';
 import gameLogic from './logic/index'
+import { toBePartiallyChecked } from '@testing-library/jest-dom/matchers';
 
 const {CellState, Game} = gameLogic
 const {DEAD, ALIVE} = CellState
@@ -18,26 +19,31 @@ const game = new Game(board)
 function App() {
 
   var [cells, setCells] = useState(game.board)
-  console.log({game})
+  const nextGen = () => {
+    const nextState = game.getNextGeneration()
+    game.board = nextState
+    setCells(nextState)
+  }
   return (
     <div className="App">
       <header className="App-header">
       <h1>Game Of Life</h1>
-
-      <table>
+        <table>
         <tbody>
           {
             cells.map((row, rowNum) => 
               <tr key={rowNum}>
             {
               row.map((cell, colNum) => 
-                <td key={colNum}>{cell.state}</td>)
-
-            }
+                <td key={colNum} className='cell' style={{
+                  background : cell.state === ALIVE ? 'black' : 'white'
+                }}></td>)}
             </tr>)
           }
         </tbody>
       </table>
+      <br></br>
+      <button onClick={nextGen}>Next Generation</button>
       </header>
     </div>
   );

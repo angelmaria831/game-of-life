@@ -1,6 +1,12 @@
 .App {
   text-align: center;
 }
+ 
+.cell{
+  outline: solid rgb(60, 49, 49);
+  height: 30px;
+  width: 30px;
+}
 
 .App-logo {
   height: 40vmin;
@@ -14,7 +20,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgb(86, 84, 84);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
