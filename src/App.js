@@ -1,7 +1,7 @@
 import './App.css';
 import { useState} from 'react';
 import gameLogic from './logic/index'
-import { toBePartiallyChecked } from '@testing-library/jest-dom/matchers';
+// import background from '../public/background-Image.png'
 
 const {CellState, Game} = gameLogic
 const {DEAD, ALIVE} = CellState
@@ -25,7 +25,7 @@ function App() {
     setCells(nextState)
   }
   return (
-    <div className="App">
+    <div className="App" style={{backgroundImage: "url(/background-Image.png)"}}>
       <header className="App-header">
       <h1>Game Of Life</h1>
         <table>
