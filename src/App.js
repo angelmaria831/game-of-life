@@ -32,9 +32,14 @@ function App() {
 
   var [cells, setCells] = useState(game.board)
   const nextGen = () => {
-    const nextState = game.getNextGeneration()
-    game.board = nextState
-    setCells(nextState)
+    let completedStatus =  false
+    while(!completedStatus){
+      let {nextState, isCompleted} = game.getNextGeneration()
+      console.log({isCompleted})
+      setCells(nextState)
+      completedStatus = isCompleted
+    }
+   
   }
 
   const toggle = (rowNum, colNum) => {
@@ -51,7 +56,7 @@ function App() {
   }
 
   return (
-    <div className="App" style={{backgroundImage: "url(/background-Image.png)"}}>
+    <div className="App" >
       <header className="App-header">
       <h1>Game Of Life</h1>
         <table>
@@ -68,8 +73,8 @@ function App() {
           }
         </tbody>
       </table>
-      <br></br>
-      <button onClick={nextGen}>Next Generation</button>
+    
+      <button onClick={nextGen}>Start</button>
       </header>
     </div>
   );

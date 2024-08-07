@@ -6,6 +6,9 @@ class Game {
         this.board = board.map((row) =>row.map(cell => {return new Cell(cell)}))
         this.rowNum = board.length
         this.colNum = board[0].length
+
+        this.prevStateString = JSON.stringify(this.board)
+        this.isCompleted = false
     }
 
 
@@ -35,9 +38,18 @@ class Game {
 
 
     getNextGeneration() {
-        return this.board.map((row, rowNum) => 
-            row.map((cell, colNum) => new Cell(cell.getNextState(this.getNeighbourCount(rowNum, colNum))))
-        )
+
+        if(!this.isCompleted){
+
+            this.prevState = JSON.stringify(this.board);
+            this.board = this.board.map((row, rowNum) => 
+                row.map((cell, colNum) => new Cell(cell.getNextState(this.getNeighbourCount(rowNum, colNum))))
+            )
+
+            if(JSON.stringify(this.board) === this.prevState) this.isCompleted = true
+        }
+        
+        return {nextState : this.board, isCompleted : this.isCompleted}
     }
 
 }
