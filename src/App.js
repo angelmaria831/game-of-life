@@ -30,16 +30,33 @@ const game = new Game(board)
 
 function App() {
 
-  var [cells, setCells] = useState(game.board)
+  const [cells, setCells] = useState(game.board)
+  const [intervalId, setIntervalId] = useState(null)
+  
   const nextGen = () => {
-    let completedStatus =  false
-    while(!completedStatus){
-      let {nextState, isCompleted} = game.getNextGeneration()
-      console.log({isCompleted})
-      setCells(nextState)
-      completedStatus = isCompleted
+
+    //Clear if an interval is already running
+    if(intervalId){
+      clearInterval(intervalId)
+      setIntervalId(null)
     }
-   
+
+    //set a new interval scheduled to call getNextGeneration() every 200 ms
+    const id = setInterval(() => {
+
+      let {nextState, isCompleted} = game.getNextGeneration()
+      setCells(nextState)
+
+      //if completed, clear the interval
+      if(isCompleted){
+        clearInterval(id);
+        setIntervalId(null)
+      }
+
+    }, 200)
+
+    setIntervalId(id)
+
   }
 
   const toggle = (rowNum, colNum) => {
