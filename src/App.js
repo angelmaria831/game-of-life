@@ -22,8 +22,7 @@ const board  = [
   [DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD],
   [DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD],
   [DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD,DEAD],
-  
-  
+    
 ]
 
 const game = new Game(board)
@@ -32,8 +31,11 @@ function App() {
 
   const [cells, setCells] = useState(game.board)
   const [intervalId, setIntervalId] = useState(null)
+  const [buttonText, setButtonText] = useState('START')
   
   const nextGen = () => {
+
+    buttonText === 'START' ? setButtonText('STOP') : setButtonText('START')    
 
     //Clear if an interval is already running
     if(intervalId){
@@ -48,7 +50,7 @@ function App() {
       setCells(nextState)
 
       //if completed, clear the interval
-      if(isCompleted){
+      if(isCompleted || buttonText == 'STOP'){
         clearInterval(id);
         setIntervalId(null)
       }
@@ -59,6 +61,14 @@ function App() {
 
   }
 
+  const reset = () => {
+
+    const resetBoard = new Game(board).board
+    setCells(resetBoard)
+    game.board = resetBoard
+ 
+  }
+  
   const toggle = (rowNum, colNum) => {
     const newCells = cells.map((row, rowIndex) => 
       row.map((cell, colIndex) => {        
@@ -90,8 +100,11 @@ function App() {
           }
         </tbody>
       </table>
-    
-      <button onClick={nextGen}>Start</button>
+    <div>
+    <button onClick={nextGen}><b>{buttonText}</b></button>
+    <button onClick={reset}><b>RESET</b></button>
+    </div>
+
       </header>
     </div>
   );
