@@ -1,11 +1,29 @@
 .App {
   text-align: center;
-}
+  background-image:url("/public/background-Image.png");
+  /* background-size: cover;
+  background-repeat: no-repeat; */
+  }
+
  
 .cell{
   outline: solid rgb(60, 49, 49);
   height: 30px;
   width: 30px;
+}
+
+button{
+  background-color:rgb(9, 69, 199);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  outline: 0;
+  border: 0;
+  box-shadow: 0px 2px 2px white;
+  margin-top: 8px;
+  &:hover{
+    background-color: dodgerblue;
+  }
 }
 
 .App-logo {
