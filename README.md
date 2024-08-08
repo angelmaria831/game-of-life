@@ -2,6 +2,31 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Game Of Life
+
+The Game of Life is a cellular automaton.
+
+It is discussed in detail on [Wikipedia] (https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
+
+## Rules
+The game of life is played on a two dimensional grid.
+
+At each turn, the state of a cell may either be "alive" or "dead"; determined by the following rules:
+
+1. A live cell with fewer than two live neighbours dies of under-population
+2. A live cell with 2 or 3 live neighbours lives on to the next generation
+3. A live cell with more than 3 live neighbours dies of overcrowding
+4. A dead cell with exactly 3 live neighbours "comes to life"
+
+![image](https://github.com/user-attachments/assets/a24aec4d-5fcc-4477-80cc-aa55adda13dc)
+
+This is a react app with jest for testing.
+
+##Features
+1. Toggle on cell to create live cell
+2. Start/Stop button to control the generation of cells
+3. Reset button to reset the game
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -31,19 +56,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-# Game Of Life
 
-The Game of Life is a cellular automaton.
-
-It is discussed in detail on [Wikipedia] (https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
-
-## Rules
-The game of life is played on a two dimensional grid.
-
-At each turn, the state of a cell may either be "alive" or "dead"; determined by the following rules:
-
-1. A live cell with fewer than two live neighbours dies of under-population
-2. A live cell with 2 or 3 live neighbours lives on to the next generation
-3. A live cell with more than 3 live neighbours dies of overcrowding
-4. A dead cell with exactly 3 live neighbours "comes to life"
-Tasks
