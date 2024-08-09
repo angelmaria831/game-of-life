@@ -29,7 +29,7 @@ class Game {
 
         for(let i = startRow; i <= endRow; i++){
             for(let j = startCol; j <= endCol; j++){
-                if(!(i == row && j == col)) count += this.board[i][j].state
+                if(!(i === row && j === col)) count += this.board[i][j].state
             }
         }
 
