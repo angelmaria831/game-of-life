@@ -18,7 +18,7 @@ At each turn, the state of a cell may either be "alive" or "dead"; determined by
 3. A live cell with more than 3 live neighbours dies of overcrowding
 4. A dead cell with exactly 3 live neighbours "comes to life"
 
-![image](https://github.com/user-attachments/assets/81433f52-fc57-43aa-a82f-e47cfe770424)
+![image](https://github.com/user-attachments/assets/476ca4a0-2474-4dad-a91a-9965ae2880af)
 
 This is a react app with jest for testing.
 
